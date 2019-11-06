@@ -100,6 +100,11 @@ int main(int argc,char *argv[]){
 			   ioctl(sockfd,FIONREAD,&len);
 			   logger.printf("len(%d)<9\n",len);
 			   continue;
+
+
+
+
+			   
 	       		//handle data
 	       		id=events[n].data.u64>>32;
 	       		len_2=recv(sockfd,&len,4,MSG_DONTWAIT|MSG_PEEK);
