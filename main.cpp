@@ -97,12 +97,14 @@ int main(int argc,char *argv[]){
 	           		unbound_clients.emplace(sockfd);
 	           }
 	       } else {
-			   ioctl(sockfd,FIONREAD,&len);
-			   logger.printf("len:%d\n",len);
-			   len_2=recv(sockfd,buff,buff_size,MSG_DONTWAIT|MSG_PEEK);
-			   logger.printf("len_2:%d\n",len_2);
-			   send(sockfd,buff,len_2,MSG_NOSIGNAL);
-			   continue;
+			   len = recv(sockfd,buff,1,MSG_DONTWAIT);
+			   logger.printf("read:%d\n",len);
+
+			//    ioctl(sockfd,FIONREAD,&len);
+			//    logger.printf("len:%d\n",len);
+			//    len_2=recv(sockfd,buff,buff_size,MSG_DONTWAIT|MSG_PEEK);
+			//    logger.printf("len_2:%d\n",len_2);
+			//    send(sockfd,buff,len_2,MSG_NOSIGNAL);
 	       }
 	   }
 	}
