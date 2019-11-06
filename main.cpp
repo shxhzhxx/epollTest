@@ -99,6 +99,7 @@ int main(int argc,char *argv[]){
 	       } else {
 			   len = recv(sockfd,buff,1,MSG_DONTWAIT);
 			   logger.printf("read:%d\n",len);
+			   send(sockfd,buff,len,MSG_NOSIGNAL);
 
 			//    ioctl(sockfd,FIONREAD,&len);
 			//    logger.printf("len:%d\n",len);
